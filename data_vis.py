@@ -23,13 +23,13 @@ print(data14_grouped)
 
 chart = (alt.Chart(alt.topo_feature("https://raw.githubusercontent.com/leakyMirror/map-of-europe/27a335110674ae5b01a84d3501b227e661beea2b/TopoJSON/europe.topojson", 'europe'))
          .mark_geoshape(stroke = "black").encode(
-    color=alt.Color('earnings_mean:Q', scale=alt.Scale(scheme='reds')),  # Colore basato su 'earnings'
-    tooltip=['geo:N', 'earnings_mean:Q']  # Tooltip per visualizzare informazioni
+    color=alt.Color('earnings_mean:Q', scale=alt.Scale(scheme='reds')),  # colore basato su 'earnings'
+    tooltip=['geo:N', 'earnings_mean:Q']  # tooltip per visualizzare informazioni
     ).transform_lookup(
-    lookup='id',  # Chiave comune per unire (nel TopoJSON)
-    from_=alt.LookupData(data14_grouped, 'geo', ['earnings_mean'])  # Fonte dei dati
+    lookup='id',  # chiave comune per unire (nel TopoJSON)
+    from_=alt.LookupData(data14_grouped, 'geo', ['earnings_mean'])  # fonte dei dati
     ).project(
-    type='mercator'  # Proiezione geografica
+    type='mercator'  # proiezione geografica
     ).properties(
     width=800,
     height=600,
